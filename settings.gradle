@@ -1,0 +1,5 @@
+include ':app',
+        ':latte-compiler', //编译器
+        ':latte-annotations', //注解
+        ':latte-core', //核心库
+        ':latte-lib' //电商ec库
