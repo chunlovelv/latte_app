@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/../gogs/github_code" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="C:\work\latte_app\android-latte_app" vcs="Git" />
+    <mapping directory="C:\work\latte_app\latte_app11111" vcs="Git" />
   </component>
 </project>

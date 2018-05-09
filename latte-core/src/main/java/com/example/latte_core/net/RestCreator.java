@@ -10,8 +10,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RestCreator {
+
     public static RestService getRestService(){
-        //这是一个测试代码
+        //这是修改之后的内容
         return RestServiceHolder.REST_SERVICE;
     }
 
