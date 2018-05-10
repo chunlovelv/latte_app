@@ -33,7 +33,6 @@ configurations.all {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':latte-lib')
-//    annotationProcessor project(':latte-compiler')
-
-
+    annotationProcessor project(':latte-compiler')
+    implementation 'com.android.support:design:25.3.1'
 }

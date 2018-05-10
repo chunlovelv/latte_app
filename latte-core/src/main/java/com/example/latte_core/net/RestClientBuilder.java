@@ -21,7 +21,7 @@ public class RestClientBuilder {
     private IFailCallback mIFailCallback;
 
 
-    RestClientBuilder(){
+    public RestClientBuilder(){
 
     }
 
@@ -32,6 +32,11 @@ public class RestClientBuilder {
 
     public final RestClientBuilder params( Map<String, Object> params){
         this.mParams.putAll(params);
+        return this;
+    }
+
+    public final RestClientBuilder params( String key, Object value){
+        this.mParams.put(key, value);
         return this;
     }
 
