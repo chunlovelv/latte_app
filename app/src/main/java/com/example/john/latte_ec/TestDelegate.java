@@ -20,7 +20,7 @@ public class TestDelegate extends LatteDelegate {
     protected void onBinderView(Bundle savedInstanceState, View rootView) {
 
         avloadingview = rootView.findViewById(R.id.avloadingview);
-        avloadingview.setIndicator(AVLoadingIndicators.BallClipRotateIndicator.name());
+        avloadingview.setIndicator(AVLoadingIndicators.BallClipRotatePulseIndicator.name());
         avloadingview.show();
         new RestClientBuilder()
                 .url("https://chuanke.baidu.com/")
