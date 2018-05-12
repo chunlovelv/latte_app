@@ -5,11 +5,12 @@ import android.os.Bundle;
 
 import com.example.latte_core.activiities.ProxyActivity;
 import com.example.latte_core.delegates.LatteDelegate;
+import com.latte.lib.launcher.LauncherDelegate;
 
 public class TestActivity extends ProxyActivity {
 
     @Override
     protected LatteDelegate setLatteDelegate() {
-        return new TestDelegate();
+        return new LauncherDelegate();
     }
 }
