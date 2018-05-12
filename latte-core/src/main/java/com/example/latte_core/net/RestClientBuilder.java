@@ -1,9 +1,12 @@
 package com.example.latte_core.net;
 
+import android.content.Context;
+
 import com.example.latte_core.net.callback.IErrorCallback;
 import com.example.latte_core.net.callback.IFailCallback;
 import com.example.latte_core.net.callback.IRequestCallback;
 import com.example.latte_core.net.callback.ISuccessCallBack;
+import com.example.latte_core.ui.AVLoadingIndicators;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -19,6 +22,9 @@ public class RestClientBuilder {
     private IErrorCallback mIErrorCallback;
     private IRequestCallback mIRequestCallback;
     private IFailCallback mIFailCallback;
+    private Context mContext;
+    private AVLoadingIndicators mIndicators;
+    private int mLoadingColor;
 
 
     public RestClientBuilder(){
@@ -62,6 +68,33 @@ public class RestClientBuilder {
         return this;
     }
 
+
+    public final RestClientBuilder loadStyle(Context context){
+        loadStyle(context, AVLoadingIndicators.BallClipRotateMultipleIndicator);
+        return this;
+    }
+
+    public final RestClientBuilder loadStyle(Context context, AVLoadingIndicators indicators){
+        loadStyle(context, indicators, 0);
+        return this;
+    }
+
+    public final RestClientBuilder loadStyle(Context context, AVLoadingIndicators indicators, int loadColor){
+        this.mContext = context;
+        if(indicators == null){
+            this.mIndicators = AVLoadingIndicators.BallClipRotatePulseIndicator;
+        }else {
+            this.mIndicators = indicators;
+        }
+        if(loadColor == 0){
+            this.mLoadingColor = 0xffffffff;
+        }else {
+            this.mLoadingColor = loadColor;
+        }
+        return this;
+    }
+
+
     public final RestClient build(){
         return  new RestClient(mUrl,
                 mParams,
@@ -69,6 +102,9 @@ public class RestClientBuilder {
                 mISuccessCallBack,
                 mIErrorCallback,
                 mIRequestCallback,
-                mIFailCallback);
+                mIFailCallback,
+                mContext,
+                mIndicators,
+                mLoadingColor);
     }
 }

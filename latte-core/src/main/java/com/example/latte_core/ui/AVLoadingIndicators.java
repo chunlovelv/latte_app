@@ -1,4 +1,4 @@
-package com.example.latte_core.animation;
+package com.example.latte_core.ui;
 
 public enum AVLoadingIndicators {
     BallPulseIndicator,

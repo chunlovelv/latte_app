@@ -30,5 +30,5 @@ dependencies {
     // fastjson
     api 'com.alibaba:fastjson:1.2.46'
     //ConvenientBanner（轮播）
-    compile 'com.bigkoo:ConvenientBanner:2.1.1'
+    api 'com.bigkoo:ConvenientBanner:2.1.1'
 }
