@@ -18,7 +18,7 @@ public class BaseTimeTask extends HandlerThread {
     ) {
         super(TAG);
         this.mInternalTime = internalTime * 1000;
-        this.mTotalTime = totalTime;
+        this.mTotalTime = totalTime * 1000;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class BaseTimeTask extends HandlerThread {
         int temp = mTotalTime;
         while (temp >= 0) {
             if (mTimTaskUpdateListener != null) {
-                mTimTaskUpdateListener.update(mTotalTime, temp);
+                mTimTaskUpdateListener.update(mTotalTime / 1000, temp /1000);
             }
             SystemClock.sleep(mInternalTime);
             temp -= mInternalTime;
