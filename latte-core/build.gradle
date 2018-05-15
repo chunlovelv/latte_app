@@ -2,6 +2,10 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 27
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+    }
 }
 
 dependencies {
@@ -23,12 +27,13 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
-
     //加载动画框架
     api 'com.wang.avi:library:2.1.3'
-
     // fastjson
     api 'com.alibaba:fastjson:1.2.46'
     //ConvenientBanner（轮播）
-    api 'com.bigkoo:ConvenientBanner:2.1.1'
+    api 'com.bigkoo:convenientbanner:2.0.5'
+    api 'com.android.support:recyclerview-v7:27.1.1'
+
+    api 'com.android.support:design:25.3.1'
 }

@@ -1,25 +1,21 @@
 package com.latte.lib.launcher;
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.widget.AppCompatTextView;
-import android.util.Log;
 import android.view.View;
 
 import com.example.latte_core.delegates.LatteDelegate;
+import com.example.latte_core.util.storage.LatteShareP;
 import com.example.latte_core.util.timer.BaseTimeTask;
 import com.example.latte_lib.R;
-
-import java.time.temporal.ChronoUnit;
+import com.example.latte_lib.login.LoginDelegate;
 
 
 public class LauncherDelegate extends LatteDelegate implements BaseTimeTask.TimTaskUpdateListener, View.OnClickListener {
 
     AppCompatTextView tv_count;
-    private int mTotalTime = 5;
-    private int mInternalTime = 1;
+    private final static int mTotalTime = 5;
+    private final static int mInternalTime = 1;
 
     private BaseTimeTask mTimeTask;
 
@@ -51,6 +47,11 @@ public class LauncherDelegate extends LatteDelegate implements BaseTimeTask.TimT
         });
     }
 
+    @Override
+    public void timeEnd() {
+        nextTo();
+    }
+
 
     @Override
     public void onDestroy() {
@@ -58,10 +59,10 @@ public class LauncherDelegate extends LatteDelegate implements BaseTimeTask.TimT
         stopTimerTask();
     }
 
-    @TargetApi(Build.VERSION_CODES.ECLAIR)
     private void stopTimerTask() {
         if(mTimeTask != null){
-            mTimeTask.quit();
+            mTimeTask.setmTimTaskUpdateListener(null);
+            mTimeTask.stopLooper();
             mTimeTask = null;
         }
     }
@@ -72,6 +73,19 @@ public class LauncherDelegate extends LatteDelegate implements BaseTimeTask.TimT
         if(id == R.id.tv_count){
             stopTimerTask();
             //跳转到新的Delegate
+            nextTo();
+        }
+    }
+
+    private void nextTo() {
+        if(LatteShareP.isFirstIn()){
+            startWithPop(new LauncherScrollDelegate());
+        }else{
+            if(LatteShareP.isLogin()){
+                //todo 跳转到主页面
+            }else{
+                startWithPop(new LoginDelegate());
+            }
         }
     }
 }

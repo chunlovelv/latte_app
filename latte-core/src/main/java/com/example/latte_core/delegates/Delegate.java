@@ -15,8 +15,6 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
  */
 public abstract class Delegate extends SwipeBackFragment {
 
-    private Unbinder mUnbinder;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,12 +24,12 @@ public abstract class Delegate extends SwipeBackFragment {
             rootView = inflater.inflate((Integer) o, container, false);
         }else if(o instanceof View){
             rootView = (View) o;
+        }else{
+            throw new RuntimeException("setLayout is must int or View");
         }
 
         if(rootView != null){
-            mUnbinder = ButterKnife.bind(this, rootView);
             onBinderView(savedInstanceState, rootView);
-
         }
 
         return rootView;
@@ -54,8 +52,5 @@ public abstract class Delegate extends SwipeBackFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(mUnbinder != null){
-            mUnbinder.unbind();
-        }
     }
 }
