@@ -33,8 +33,11 @@ public class LauncherScrollDelegate extends LatteDelegate implements OnItemClick
     }
 
     private void initBanner() {
-        mBannerImages.add(R.mipmap.efg);
-        mBannerImages.add(R.mipmap.abc);
+        mBannerImages.add(R.mipmap.launcher_01);
+        mBannerImages.add(R.mipmap.launcher_02);
+        mBannerImages.add(R.mipmap.launcher_03);
+        mBannerImages.add(R.mipmap.launcher_04);
+        mBannerImages.add(R.mipmap.launcher_05);
         mBanner = new ConvenientBanner<>(getActivity());
         mBanner.setCanLoop(false);
         mBanner.setPageIndicator(new int[]{R.drawable.shap_scroll_point_normal,
