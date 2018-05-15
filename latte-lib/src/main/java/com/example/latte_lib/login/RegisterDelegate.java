@@ -9,12 +9,13 @@ import android.view.View;
 
 import com.example.latte_core.delegates.LatteDelegate;
 import com.example.latte_lib.R;
+import com.orhanobut.logger.Logger;
 
 public class RegisterDelegate extends LatteDelegate implements View.OnClickListener {
 
-    private AppCompatEditText tv_name, tv_pwd;
-    private AppCompatTextView tv_to_register;
-    private AppCompatButton btn_login;
+    private AppCompatEditText tv_name, tv_pwd, tv_re_pwd;
+    private AppCompatTextView tv_to_login;
+    private AppCompatButton btn_register;
     @Override
     protected void onBinderView(Bundle savedInstanceState, View rootView) {
         initView(rootView);
@@ -22,15 +23,16 @@ public class RegisterDelegate extends LatteDelegate implements View.OnClickListe
     }
 
     private void initEvents() {
-        tv_to_register.setOnClickListener(this);
-        btn_login.setOnClickListener(this);
+        tv_to_login.setOnClickListener(this);
+        btn_register.setOnClickListener(this);
     }
 
     private void initView(View rootView) {
         tv_name = rootView.findViewById(R.id.tv_name);
+        tv_re_pwd = rootView.findViewById(R.id.tv_re_pwd);
         tv_pwd = rootView.findViewById(R.id.tv_pwd);
-        tv_to_register = rootView.findViewById(R.id.tv_to_register);
-        btn_login = rootView.findViewById(R.id.btn_login);
+        tv_to_login = rootView.findViewById(R.id.tv_to_login);
+        btn_register = rootView.findViewById(R.id.btn_register);
     }
 
     @Override
@@ -42,11 +44,13 @@ public class RegisterDelegate extends LatteDelegate implements View.OnClickListe
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if(id == R.id.tv_to_register){
-            //TODO 跳转到注册页面
-        }else if (id == R.id.btn_login){
+        if(id == R.id.tv_to_login){
+            // 跳转到登录页面
+            startWithPop(new LoginDelegate());
+        }else if (id == R.id.btn_register){
             if(checkParams()){
-                //Todo 执行登录操作
+                //Todo 执行注册操作
+                Logger.d("我草，这么牛逼！！！");
 
             }
         }
@@ -68,6 +72,20 @@ public class RegisterDelegate extends LatteDelegate implements View.OnClickListe
             isFalse = false;
         }else{
             tv_pwd.setError(null);
+        }
+
+        if(TextUtils.isEmpty(tv_re_pwd.getText().toString().trim())){
+            tv_re_pwd.setError("密码为空");
+            isFalse = false;
+        }else{
+            tv_re_pwd.setError(null);
+        }
+
+        if(!tv_re_pwd.getText().toString().trim().equals(tv_pwd.getText().toString().trim())){
+            tv_re_pwd.setError("两次输入的密码不一致");
+            isFalse = false;
+        }else{
+            tv_re_pwd.setError(null);
         }
         return isFalse;
     }
