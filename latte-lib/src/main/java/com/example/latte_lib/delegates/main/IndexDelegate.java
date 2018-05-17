@@ -1,12 +1,12 @@
-package com.example.john.latte_ec;
+package com.example.latte_lib.delegates.main;
 
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.latte_core.delegates.Delegate;
-import com.example.latte_core.delegates.LatteDelegate;
+import com.example.latte_core.delegates.main.BaseContentDelegate;
+import com.example.latte_lib.R;
 
-public class IndexDelegate extends LatteDelegate {
+public class IndexDelegate extends BaseContentDelegate {
     @Override
     protected void onBinderView(Bundle savedInstanceState, View rootView) {
 

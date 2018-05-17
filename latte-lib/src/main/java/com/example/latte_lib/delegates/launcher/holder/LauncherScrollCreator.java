@@ -1,10 +1,6 @@
-package com.latte.lib.launcher.holder;
-
-import android.view.View;
+package com.example.latte_lib.delegates.launcher.holder;
 
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
-import com.bigkoo.convenientbanner.holder.Holder;
-import com.example.latte_lib.R;
 
 public class LauncherScrollCreator implements CBViewHolderCreator<LauncherScrollHolder> {
 

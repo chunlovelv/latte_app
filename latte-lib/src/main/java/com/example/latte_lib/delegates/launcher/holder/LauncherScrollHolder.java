@@ -1,4 +1,4 @@
-package com.latte.lib.launcher.holder;
+package com.example.latte_lib.delegates.launcher.holder;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;

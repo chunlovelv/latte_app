@@ -1,4 +1,4 @@
-package com.latte.lib.launcher;
+package com.example.latte_lib.delegates.launcher;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +8,8 @@ import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.example.latte_core.delegates.LatteDelegate;
 import com.example.latte_core.util.storage.LatteShareP;
 import com.example.latte_lib.R;
-import com.example.latte_lib.login.LoginDelegate;
-import com.latte.lib.launcher.holder.LauncherScrollCreator;
+import com.example.latte_lib.delegates.login.LoginDelegate;
+import com.example.latte_lib.delegates.launcher.holder.LauncherScrollCreator;
 
 import java.util.ArrayList;
 import java.util.List;

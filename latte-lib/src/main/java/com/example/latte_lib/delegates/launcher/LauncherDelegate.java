@@ -1,4 +1,4 @@
-package com.latte.lib.launcher;
+package com.example.latte_lib.delegates.launcher;
 
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatTextView;
@@ -8,7 +8,7 @@ import com.example.latte_core.delegates.LatteDelegate;
 import com.example.latte_core.util.storage.LatteShareP;
 import com.example.latte_core.util.timer.BaseTimeTask;
 import com.example.latte_lib.R;
-import com.example.latte_lib.login.LoginDelegate;
+import com.example.latte_lib.delegates.login.LoginDelegate;
 
 
 public class LauncherDelegate extends LatteDelegate implements BaseTimeTask.TimTaskUpdateListener, View.OnClickListener {
