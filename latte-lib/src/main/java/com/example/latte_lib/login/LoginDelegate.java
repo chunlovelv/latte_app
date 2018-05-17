@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.example.latte_core.delegates.LatteDelegate;
 import com.example.latte_lib.R;
+import com.orhanobut.logger.Logger;
 
 public class LoginDelegate extends LatteDelegate implements View.OnClickListener {
     private AppCompatEditText tv_name, tv_pwd;
@@ -39,13 +40,15 @@ public class LoginDelegate extends LatteDelegate implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
+        Logger.d("我草，这么牛逼！！！");
+        Logger.d("fucking%s","草....");
         int id = v.getId();
         if(id == R.id.tv_to_register){
             //跳转到注册页面
             startWithPop(new RegisterDelegate());
         }else if (id == R.id.btn_login){
             if(checkParams()){
-                //Todo 执行登录操作
+                //Todo 执行登录操作1111111
 
             }
         }

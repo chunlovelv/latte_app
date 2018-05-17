@@ -50,8 +50,6 @@ public class RegisterDelegate extends LatteDelegate implements View.OnClickListe
         }else if (id == R.id.btn_register){
             if(checkParams()){
                 //Todo 执行注册操作
-                Logger.d("我草，这么牛逼！！！");
-
             }
         }
 
