@@ -9,6 +9,7 @@ import android.support.v7.widget.ContentFrameLayout;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.latte_core.R;
@@ -71,13 +72,13 @@ public abstract class BaseMainDelegate extends LatteDelegate implements View.OnC
 
         final int size = mBottomItems.size();
         final LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        RelativeLayout r = null;
+        LinearLayout r = null;
         IconTextView itv;
         AppCompatTextView t;
         for (int i = 0; i < size; i++) {
             //将item布局加载到容器中去
             layoutInflater.inflate(R.layout.layout_bottom_item, mBottomContainer);
-            r = (RelativeLayout) mBottomContainer.getChildAt(i);
+            r = (LinearLayout) mBottomContainer.getChildAt(i);
             r.setOnClickListener(this);
             r.setTag(i);
             itv = (IconTextView) r.getChildAt(0);
@@ -105,7 +106,7 @@ public abstract class BaseMainDelegate extends LatteDelegate implements View.OnC
     private void resetColor(){
         final int childCount = mBottomContainer.getChildCount();
         for(int i = 0; i<childCount;i++){
-            final RelativeLayout r = (RelativeLayout) mBottomContainer.getChildAt(i);
+            final LinearLayout r = (LinearLayout) mBottomContainer.getChildAt(i);
             IconTextView itv = (IconTextView) r.getChildAt(0);
             AppCompatTextView t = (AppCompatTextView) r.getChildAt(1);
             itv.setTextColor(Color.GRAY);
@@ -117,7 +118,7 @@ public abstract class BaseMainDelegate extends LatteDelegate implements View.OnC
     public void onClick(View v) {
         final  int tag = (int) v.getTag();
         resetColor();
-        final RelativeLayout r = (RelativeLayout) mBottomContainer.getChildAt(tag);
+        final LinearLayout r = (LinearLayout) mBottomContainer.getChildAt(tag);
         IconTextView itv = (IconTextView) r.getChildAt(0);
         AppCompatTextView t = (AppCompatTextView) r.getChildAt(1);
         itv.setTextColor(mClickColor);

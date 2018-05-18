@@ -16,8 +16,9 @@
     <android.support.v7.widget.LinearLayoutCompat
         android:id="@+id/bottom_container"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="50dp"
         android:gravity="center"
+        android:background="#eee"
         android:orientation="horizontal">
     </android.support.v7.widget.LinearLayoutCompat>
 
