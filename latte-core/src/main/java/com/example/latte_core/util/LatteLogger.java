@@ -9,6 +9,7 @@ public class LatteLogger {
     private static final int WARN = 2;
     private static final int ERROR = 3;
     private static final int ASSERT = 4;
+    //打印log数据的标准值
     private static final int LEVEL = 5;
 
     public static void v(String msg){
