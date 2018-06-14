@@ -4,9 +4,9 @@ public enum MultipleFields {
     ITEM_TYPE,
     TEXT,
     IMAGE,
-    SPINNER,
+    BANNERS,
     IMAGE_URL,
-    SPINER_SIZE,
+    SPAN_SIZE,
     ID,
     TAG,
     NAME

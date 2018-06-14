@@ -4,6 +4,7 @@ import com.example.latte_core.delegates.main.BaseMainDelegate;
 import com.example.latte_core.delegates.main.BaseContentDelegate;
 import com.example.latte_core.delegates.main.BottomBuilder;
 import com.example.latte_core.delegates.main.BottomItem;
+import com.example.latte_lib.delegates.main.index.IndexDelegate;
 
 import java.util.LinkedHashMap;
 

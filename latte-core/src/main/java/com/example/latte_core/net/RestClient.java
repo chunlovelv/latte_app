@@ -194,4 +194,9 @@ public class RestClient {
             }
         }
     }
+
+
+    public static RestClientBuilder builder(){
+        return new RestClientBuilder();
+    }
 }
