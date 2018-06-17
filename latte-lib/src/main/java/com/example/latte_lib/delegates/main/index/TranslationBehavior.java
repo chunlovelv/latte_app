@@ -1,11 +1,17 @@
 package com.example.latte_lib.delegates.main.index;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.latte_core.app.Latte;
 import com.example.latte_core.util.LatteLogger;
@@ -17,37 +23,36 @@ import com.example.latte_lib.R;
  * 说明:
  */
 public class TranslationBehavior extends CoordinatorLayout.Behavior<Toolbar> {
+    private int normal_color = Color.TRANSPARENT;
+    private int scroll_color = Color.YELLOW;
+    private int scrollY = 20;
+    public TranslationBehavior() {
+    }
 
     public TranslationBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
     @Override
-    public boolean layoutDependsOn(CoordinatorLayout parent, Toolbar child, View dependency) {
-        LatteLogger.d("dependency.getName==> "+dependency.getClass().getName());
-        LatteLogger.d("child.getName==> "+child.getClass().getName());
-        return dependency.getId()== R.id.list;
+    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, Toolbar child, View directTargetChild, View target, int nestedScrollAxes) {
+        return (nestedScrollAxes & ViewCompat.SCROLL_AXIS_VERTICAL) != 0;
     }
 
     @Override
-    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull Toolbar child, @NonNull View directTargetChild, @NonNull View target, int axes, int type) {
-        return true;
-    }
-
-    @Override
-    public boolean onDependentViewChanged(CoordinatorLayout parent, Toolbar child, View dependency) {
-        if(dependency.getScaleY() > 10){
-            child.setBackgroundColor(0xffffffff);
+    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout,
+                                  Toolbar child,
+                                  View target,
+                                  int dx,
+                                  int dy,
+                                  int[] consumed) {
+        super.onNestedPreScroll(coordinatorLayout,child,target,dx,dy,consumed);
+        Log.d("TranslationBehavior", "dy==> "+dy);
+        scrollY += dy;
+        if(scrollY > 50){
+            child.setBackgroundColor(scroll_color);
+        }else {
+            child.setBackgroundColor(normal_color);
         }
-        return true;
     }
 
-    @Override
-    public void onNestedPreScroll(@NonNull CoordinatorLayout coordinatorLayout,
-                                  @NonNull Toolbar child, @NonNull View target,
-                                  int dx, int dy,
-                                  @NonNull int[] consumed, int type) {
-//        super.onNestedPreScroll(coordinatorLayout,child,target,dx,dy,consumed,type);
-        LatteLogger.d("dy==> "+dy);
-    }
 }
